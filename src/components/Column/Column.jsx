@@ -7,11 +7,11 @@ function Column({ statusTask }) {
         <p>{statusTask}</p>
       </div>
       <div className="cards">
-        <Card categoryOfTask={"Web Design"} nameTask={"Название задачи"} />
-        <Card categoryOfTask={"Research"} nameTask={"Название задачи"} />
-        <Card categoryOfTask={"Web Design"} nameTask={"Название задачи"} />
-        <Card categoryOfTask={"Copywriting"} nameTask={"Название задачи"} />
-        <Card categoryOfTask={"Web Design"} nameTask={"Название задачи"} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   );
