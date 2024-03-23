@@ -4,8 +4,31 @@ import PopExit from "./components/popups/PopExit/PopExit";
 import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import { useState } from "react";
+import { cardList } from "./data";
+import { useEffect } from "react";
 
 function App() {
+  const [cards, setCards] = useState(cardList);
+  const [isLoaded, setIsLoaded] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded((isLoaded) => {!isLoaded})
+    }, 2000);
+  }, [])
+
+  function addCard() {
+    setCards([...cards,
+    {
+      id: cards.length + 1,
+      topic: "Тема",
+      title: "Название задачи",
+      date: "30.10.23",
+      status: "Без статуса",
+    }])
+  }
+
   return (
     <div className="wrapper">
       {/* pop-up start*/}
@@ -13,8 +36,8 @@ function App() {
       <PopNewCard />
       <PopBrowse />
       {/* pop-up end*/}
-      <Header />
-      <Main />
+      <Header addCard = {addCard}/>
+      <Main cardList = {cards} isLoaded = {isLoaded}/>
     </div>
   );
 }

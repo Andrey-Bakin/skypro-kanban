@@ -9,13 +9,14 @@ const statusList = [
   "Готово",
 ];
 
-function Main() {
+function Main({ cardList, isLoaded}) {
   return (
     <main className="main">
       <div className="container">
         <div className="main__block">
           <div className="main__content">
-            {statusList.map((status, index) => (
+            {isLoaded? "Данные загружаются" :
+            statusList.map((status, index) => (
               <Column
                 key={index}
                 status={status}
