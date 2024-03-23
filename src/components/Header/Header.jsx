@@ -21,7 +21,7 @@ function Header ({addCard}) {
         </div>
         <nav className="header__nav">
           <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">
-            <a href="#popNewCard">Создать новую задачу</a>
+            Создать новую задачу
           </button>
           <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
             Ivan Ivanov
