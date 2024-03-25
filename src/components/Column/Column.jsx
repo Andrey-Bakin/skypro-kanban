@@ -1,17 +1,13 @@
 import Card from "../Card/Card";
 
-function Column({ statusTask }) {
+function Column({ status, cardList }) {
   return (
     <div className="main__column">
       <div className="column__title">
-        <p>{statusTask}</p>
+        <p>{status}</p>
       </div>
       <div className="cards">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {cardList.map((card) => <Card key={card.id} {...card}/>)}
       </div>
     </div>
   );
