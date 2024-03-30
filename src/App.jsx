@@ -7,6 +7,7 @@ import Main from "./components/Main/Main";
 import { useState } from "react";
 import { cardList } from "./data";
 import { useEffect } from "react";
+import { Wrapper } from "./components/styles/shared";
 
 function App() {
   const [cards, setCards] = useState(cardList);
@@ -30,7 +31,7 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       {/* pop-up start*/}
       <PopExit />
       <PopNewCard />
@@ -38,7 +39,7 @@ function App() {
       {/* pop-up end*/}
       <Header addCard = {addCard}/>
       <Main cardList = {cards} isLoaded = {isLoaded}/>
-    </div>
+    </Wrapper>
   );
 }
 
