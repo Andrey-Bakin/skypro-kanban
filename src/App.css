@@ -803,21 +803,21 @@ body {
   z-index: 2;
 }
 
-.main {
+/* .main {
   width: 100%;
   background-color: #EAEEF6;
-}
+} */
 
-.main__block {
+/* .main__block {
   width: 100%;
   margin: 0 auto;
   padding: 25px 0 49px;
-}
+} */
 
-.main__content {
+/* .main__content {
   width: 100%;
   display: flex;
-}
+} */
 
 .main__column {
   width: 20%;
