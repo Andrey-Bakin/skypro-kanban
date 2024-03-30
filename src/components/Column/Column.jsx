@@ -1,15 +1,16 @@
 import Card from "../Card/Card";
+import * as S from "../Column/Column.styled"
 
 function Column({ status, cardList }) {
   return (
-    <div className="main__column">
-      <div className="column__title">
+    <S.MainColumn>
+      <S.ColumnTitle>
         <p>{status}</p>
-      </div>
-      <div className="cards">
+      </S.ColumnTitle>
+      <S.Cards>
         {cardList.map((card) => <Card key={card.id} {...card}/>)}
-      </div>
-    </div>
+      </S.Cards>
+    </S.MainColumn>
   );
 }
 
