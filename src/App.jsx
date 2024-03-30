@@ -8,6 +8,7 @@ import { useState } from "react";
 import { cardList } from "./data";
 import { useEffect } from "react";
 import { Wrapper } from "./components/styles/shared";
+import { GlobalStyle } from "./components/styles/Global.styled";
 
 function App() {
   const [cards, setCards] = useState(cardList);
@@ -31,6 +32,8 @@ function App() {
   }
 
   return (
+    <>
+    <GlobalStyle/>
     <Wrapper>
       {/* pop-up start*/}
       <PopExit />
@@ -40,6 +43,7 @@ function App() {
       <Header addCard = {addCard}/>
       <Main cardList = {cards} isLoaded = {isLoaded}/>
     </Wrapper>
+    </>
   );
 }
 

@@ -15,7 +15,7 @@ export const cardList = [
   },
   {
     id: 3,
-    topic: "Researc",
+    topic: "Research",
     title: "Название задачи",
     date: "30.10.23",
     status: "Нужно сделать",
