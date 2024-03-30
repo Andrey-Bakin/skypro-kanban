@@ -27,3 +27,10 @@ export const Wrapper = styled.div`
     overflow: hidden;
     background-color: #F1F1F1;
 `;
+
+// export const Subttl = styled.p`
+//     color: #000;
+//     font-size: 14px;
+//     font-weight: 600;
+//     line-height: 1;
+// `;

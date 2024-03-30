@@ -1,5 +1,5 @@
 import Card from "../Card/Card";
-import * as S from "../Column/Column.styled"
+import * as S from "./Column.styled"
 
 function Column({ status, cardList }) {
   return (
