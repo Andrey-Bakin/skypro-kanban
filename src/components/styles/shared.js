@@ -11,7 +11,17 @@ export const Hover02 = css`
 &:hover {
     color: #33399b;
 }
-`
+`;
+
+export const Hover03 = css`
+&:hover {
+    background-color: #33399b;
+    color: #FFFFFF;
+    & a {
+        color: #FFFFFF;
+    }
+}
+`;
 
 export const Container = styled.div`
     max-width: 1260px;
@@ -28,9 +38,3 @@ export const Wrapper = styled.div`
     background-color: #F1F1F1;
 `;
 
-// export const Subttl = styled.p`
-//     color: #000;
-//     font-size: 14px;
-//     font-weight: 600;
-//     line-height: 1;
-// `;

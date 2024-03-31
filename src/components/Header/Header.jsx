@@ -3,7 +3,6 @@ import { useState } from "react"
 import * as S from "./Header.styled";
 import { Container } from "../styles/shared";
 
-
 function Header ({addCard}) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
@@ -14,12 +13,12 @@ function Header ({addCard}) {
       <Container>
         <S.HeaderBlock>
           <S.HeaderLogo>
-            <a href="" target="_self">
+            <a href="#" target="_self">
               <img src="public/logo.png" alt="logo" />
             </a>
           </S.HeaderLogo>
           <S.HeaderLogoDark>
-            <a href="" target="_self">
+            <a href="#" target="_self">
               <img src="public/logo_dark.png" alt="logo" />
             </a>
           </S.HeaderLogoDark>

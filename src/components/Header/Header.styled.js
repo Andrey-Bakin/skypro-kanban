@@ -41,7 +41,6 @@ export const HeaderLogo = styled.div`
     & img {
         width: 85px;
     }
-    
 `;
 
 export const HeaderLogoDark = styled(HeaderLogo)`

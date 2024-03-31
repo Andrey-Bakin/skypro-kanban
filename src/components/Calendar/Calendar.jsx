@@ -37,8 +37,8 @@ function Calendar() {
             <S.CalendarDayName>ср</S.CalendarDayName>
             <S.CalendarDayName>чт</S.CalendarDayName>
             <S.CalendarDayName>пт</S.CalendarDayName>
-            <S.CalendarDayName weekend>сб</S.CalendarDayName>
-            <S.CalendarDayName weekend>вс</S.CalendarDayName>
+            <S.CalendarDayName>сб</S.CalendarDayName>
+            <S.CalendarDayName>вс</S.CalendarDayName>
           </S.CalendarDaysNames>
           <S.CalendarCells>
             <S.CalendarCellOtherMonth>28</S.CalendarCellOtherMonth>
@@ -46,8 +46,8 @@ function Calendar() {
             <S.CalendarCellOtherMonth>30</S.CalendarCellOtherMonth>
             <S.CalendarCellOtherMonth>31</S.CalendarCellOtherMonth>
             <S.CalendarCellDay>1</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>2</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>3</S.CalendarCellDay>
+            <S.CalendarCellDay>2</S.CalendarCellDay>
+            <S.CalendarCellDay>3</S.CalendarCellDay>
             <S.CalendarCellDay>4</S.CalendarCellDay>
             <S.CalendarCellDay>5</S.CalendarCellDay>
             <S.CalendarCellDay>6</S.CalendarCellDay>
@@ -56,28 +56,28 @@ function Calendar() {
             <S.CalendarCellDayActive>
               9
             </S.CalendarCellDayActive>
-            <S.CalendarCellDay weekend>10</S.CalendarCellDay>
+            <S.CalendarCellDay>10</S.CalendarCellDay>
             <S.CalendarCellDay>11</S.CalendarCellDay>
             <S.CalendarCellDay>12</S.CalendarCellDay>
             <S.CalendarCellDay>13</S.CalendarCellDay>
             <S.CalendarCellDay>14</S.CalendarCellDay>
             <S.CalendarCellDay>15</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>16</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>17</S.CalendarCellDay>
+            <S.CalendarCellDay>16</S.CalendarCellDay>
+            <S.CalendarCellDay>17</S.CalendarCellDay>
             <S.CalendarCellDay>18</S.CalendarCellDay>
             <S.CalendarCellDay>19</S.CalendarCellDay>
             <S.CalendarCellDay>20</S.CalendarCellDay>
             <S.CalendarCellDay>21</S.CalendarCellDay>
             <S.CalendarCellDay>22</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>23</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>24</S.CalendarCellDay>
+            <S.CalendarCellDay>23</S.CalendarCellDay>
+            <S.CalendarCellDay>24</S.CalendarCellDay>
             <S.CalendarCellDay>25</S.CalendarCellDay>
             <S.CalendarCellDay>26</S.CalendarCellDay>
             <S.CalendarCellDay>27</S.CalendarCellDay>
             <S.CalendarCellDay>28</S.CalendarCellDay>
             <S.CalendarCellDay>29</S.CalendarCellDay>
-            <S.CalendarCellDay weekend>30</S.CalendarCellDay>
-            <S.CalendarCellOtherMonth weekend>1</S.CalendarCellOtherMonth>
+            <S.CalendarCellDay>30</S.CalendarCellDay>
+            <S.CalendarCellOtherMonth>1</S.CalendarCellOtherMonth>
           </S.CalendarCells>
         </S.CalendarContent>
         <input type="hidden" id="datepick_value" defaultValue="08.09.2023" />
