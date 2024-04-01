@@ -1,7 +1,6 @@
 import Column from "../Column/Column";
-import { cardList } from "../../data";
 import { Container } from "../styles/shared";
-import * as S from "../Main/Main.styled"
+import * as S from "./Main.styled"
 
 const statusList = [
   "Без статуса",
