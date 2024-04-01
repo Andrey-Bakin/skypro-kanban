@@ -1,5 +1,6 @@
 import Column from "../Column/Column";
-import { cardList } from "../../data";
+import { Container } from "../styles/shared";
+import * as S from "./Main.styled"
 
 const statusList = [
   "Без статуса",
@@ -11,10 +12,10 @@ const statusList = [
 
 function Main({ cardList, isLoaded}) {
   return (
-    <main className="main">
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
+    <S.Main>
+      <Container>
+        <S.MainBlock>
+          <S.MainContent>
             {isLoaded? "Данные загружаются" :
             statusList.map((status, index) => (
               <Column
@@ -23,10 +24,10 @@ function Main({ cardList, isLoaded}) {
                 cardList={cardList.filter((card) => card.status === status)}
               />
             ))}
-          </div>
-        </div>
-      </div>
-    </main>
+          </S.MainContent>
+        </S.MainBlock>
+      </Container>
+    </S.Main>
   );
 }
 

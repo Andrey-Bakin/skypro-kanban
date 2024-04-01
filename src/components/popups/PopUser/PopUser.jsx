@@ -1,20 +1,22 @@
+import * as S from "./PopUser.styled";
+
+
 function PopUser () {
     return (
-        <div
-            className="header__pop-user-set pop-user-set"
+        <S.PopUser
             id="user-set-target"
           >
             {/* <a href="">x</a> */}
-            <p className="pop-user-set__name">Ivan Ivanov</p>
-            <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-            <div className="pop-user-set__theme">
+            <S.PopUserName>Ivan Ivanov</S.PopUserName>
+            <S.PopUserMail>ivan.ivanov@gmail.com</S.PopUserMail>
+            <S.PopUserTheme>
               <p>Темная тема</p>
-              <input type="checkbox" className="checkbox" name="checkbox" />
-            </div>
-            <button type="button" className="_hover03">
+              <S.PopUserSetThemeInput type="checkbox" />
+            </S.PopUserTheme>
+            <S.PopUserButtonExit >
               <a href="#popExit">Выйти</a>
-            </button>
-          </div>
+            </S.PopUserButtonExit>
+          </S.PopUser>
     )
 }
 
