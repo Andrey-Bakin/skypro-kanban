@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Hover01 } from "../styles/shared";
 
-export const ContainerSignin = styled.div`
+export const LoginContainer = styled.div`
   display: block;
   width: 100vw;
   min-height: 100vh;

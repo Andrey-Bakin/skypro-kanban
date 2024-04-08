@@ -13,7 +13,7 @@ function Login({ setIsAuth }) {
 
   return (
     <Wrapper>
-      <S.ContainerSignin>
+      <S.LoginContainer>
         <S.LoginModal>
           <S.LoginModalBlock>
             <S.LoginModalTtl>
@@ -45,7 +45,7 @@ function Login({ setIsAuth }) {
             </S.LoginModalForm>
           </S.LoginModalBlock>
         </S.LoginModal>
-      </S.ContainerSignin>
+      </S.LoginContainer>
     </Wrapper>
   );
 }
