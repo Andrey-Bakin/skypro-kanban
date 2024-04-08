@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { cardList } from "./data";
 import { routesObject } from "./lib/const";
 import MainPage from "./pages/MainPage";
 import ExitPage from "./pages/ExitPage";
