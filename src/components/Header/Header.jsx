@@ -2,6 +2,7 @@ import PopUser from "../popups/PopUser/PopUser"
 import { useState } from "react"
 import * as S from "./Header.styled";
 import { Container } from "../styles/shared";
+import { Link } from "react-router-dom";
 
 function Header ({addCard}) {
   const [isOpened, setIsOpened] = useState(false);
@@ -13,9 +14,9 @@ function Header ({addCard}) {
       <Container>
         <S.HeaderBlock>
           <S.HeaderLogo>
-            <a href="#" target="_self">
+            <Link to="/" target="_self">
               <img src="public/logo.png" alt="logo" />
-            </a>
+            </Link>
           </S.HeaderLogo>
           <S.HeaderLogoDark>
             <a href="#" target="_self">

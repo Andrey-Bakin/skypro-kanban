@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import * as S from "./Card.styled";
 
-function Card({ topic, title, date }) {
+function Card({ topic, title, date, id }) {
   const getClassName = (name) => {
     switch (name.toLowerCase()) {
       case "copywriting":
@@ -20,18 +21,20 @@ function Card({ topic, title, date }) {
           <S.CardTopic $topic={getClassName(topic)}>
             <p>{topic}</p>
           </S.CardTopic>
-          <a href="#popBrowse" target="_self">
-            <S.CardBtn>
-              <div />
-              <div />
-              <div />
-            </S.CardBtn>
-          </a>
+
+            <Link to={`/card/${id}`}>
+              <S.CardBtn>
+                <div />
+                <div />
+                <div />
+              </S.CardBtn>
+            </Link>
+        
         </S.CardGroup>
         <S.CardContent>
-          <a href="" target="_blank">
+          
             <S.CardTitle>{title}</S.CardTitle>
-          </a>
+         
           <S.CardDate>
             <svg
               xmlns="http://www.w3.org/2000/svg"

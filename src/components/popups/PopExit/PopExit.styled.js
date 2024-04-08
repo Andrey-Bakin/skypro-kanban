@@ -3,7 +3,7 @@ import { Hover01, Hover03 } from "../../styles/shared";
 
 
 export const PopExit = styled.div`
-    display: none;
+    display: block;
     width: 100%;
     height: 100%;
     min-width: 320px;

@@ -1,6 +1,10 @@
+import { Link, useSearchParams } from "react-router-dom";
+import { routesObject } from "../../../lib/const";
 import Calendar from "../../Calendar/Calendar";
 
 function PopBrowse() {
+  const params = useParams()
+  console.log(params)
   return (
     <div className="pop-browse" id="popBrowse">
       <div className="pop-browse__container">
@@ -69,7 +73,7 @@ function PopBrowse() {
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
+                <Link to={routesObject.MAIN}>Закрыть</Link>
               </button>
             </div>
             <div className="pop-browse__btn-edit _hide">
@@ -88,7 +92,7 @@ function PopBrowse() {
                 </button>
               </div>
               <button className="btn-edit__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
+                <Link to={routesObject.MAIN}>Закрыть</Link>
               </button>
             </div>
           </div>
