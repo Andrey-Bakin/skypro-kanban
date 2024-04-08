@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { routesObject } from "../../lib/const";
 
-function PrivateRoutes() {
-    const token = true
+function PrivateRoutes({isAuth}) {
+   
     return (
-        token ? <Outlet/> : <Navigate to="/login"/>
+        isAuth ? <Outlet/> : <Navigate to={routesObject.LOGIN}/>
     )
 }
 export default PrivateRoutes

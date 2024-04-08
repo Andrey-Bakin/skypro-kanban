@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { cardList } from "./data";
 import { routesObject } from "./lib/const";
@@ -11,17 +11,18 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
 
 const AppRoutes = () => {
+  const [isAuth, setIsAuth] = useState(false)
   return (
     <>
       <Routes>
-        <Route element={<PrivateRoutes />}>
+        <Route element={<PrivateRoutes isAuth={isAuth}/>}>
           <Route path={routesObject.MAIN} element={<MainPage />}>
             <Route path={routesObject.EXIT} element={<ExitPage />} />
             <Route path={routesObject.CARD} element={<CardPage />} />
           </Route>
         </Route>
 
-        <Route path={routesObject.LOGIN} element={<LoginPage />} />
+        <Route path={routesObject.LOGIN} element={<LoginPage setIsAuth={setIsAuth}/>} />
         <Route path={routesObject.REGISTER} element={<RegisterPage />} />
         <Route path={routesObject.ERROR} element={<NotFoundPage />} />
       </Routes>
