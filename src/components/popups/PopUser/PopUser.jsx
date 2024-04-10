@@ -1,11 +1,11 @@
+import { Link } from "react-router-dom";
 import * as S from "./PopUser.styled";
+import { routesObject } from "../../../lib/const";
 
 
 function PopUser () {
     return (
-        <S.PopUser
-            id="user-set-target"
-          >
+        <S.PopUser>
             {/* <a href="">x</a> */}
             <S.PopUserName>Ivan Ivanov</S.PopUserName>
             <S.PopUserMail>ivan.ivanov@gmail.com</S.PopUserMail>
@@ -14,7 +14,7 @@ function PopUser () {
               <S.PopUserSetThemeInput type="checkbox" />
             </S.PopUserTheme>
             <S.PopUserButtonExit >
-              <a href="#popExit">Выйти</a>
+              <Link to={routesObject.EXIT}>Выйти</Link>
             </S.PopUserButtonExit>
           </S.PopUser>
     )

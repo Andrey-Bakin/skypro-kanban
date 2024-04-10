@@ -1,8 +1,10 @@
-import *as S from "./PopExit.styled"
+import { Link } from "react-router-dom";
+import *as S from "./PopExit.styled";
+import { routesObject } from "../../../lib/const";
 
 function PopExit () {
     return ( 
-    <S.PopExit id="popExit">
+    <S.PopExit>
     <S.PopExitContainer>
       <S.PopExitBlock>
         <S.PopExitTitle>
@@ -10,11 +12,11 @@ function PopExit () {
         </S.PopExitTitle>
         <S.PopExitTForm>
           <S.PopExitGroup>
-            <S.PopExitButtonYes id="exitYes">
-              <a href="modal/signin.html">Да, выйти</a>{" "}
+            <S.PopExitButtonYes>
+              <Link to={routesObject.LOGIN}>Да, выйти</Link>
             </S.PopExitButtonYes>
-            <S.PopExitButtonNo id="exitNo">
-              <a href="main.html">Нет, остаться</a>{" "}
+            <S.PopExitButtonNo>
+              <Link to={routesObject.MAIN}>Нет, остаться</Link>
             </S.PopExitButtonNo>
           </S.PopExitGroup>
         </S.PopExitTForm>
