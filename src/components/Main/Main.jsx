@@ -10,7 +10,7 @@ const statusList = [
   "Готово",
 ];
 
-function Main({ cardList, isLoaded}) {
+function Main({ cardList, isLoaded, error}) {
   return (
     <S.Main>
       <Container>
@@ -24,6 +24,7 @@ function Main({ cardList, isLoaded}) {
                 cardList={cardList.filter((card) => card.status === status)}
               />
             ))}
+            {error && (<p style={{color: "#f50e0e", fontSize: 25}}>Произошла ошибка, попробуйте позже...{" "}</p>)}
           </S.MainContent>
         </S.MainBlock>
       </Container>

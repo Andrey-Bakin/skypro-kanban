@@ -7,17 +7,24 @@ import { useEffect } from "react";
 import { Wrapper } from "../components/styles/shared";
 import "../App.css";
 import { Outlet } from "react-router-dom";
+import { getTasks } from "../api";
 
 const MainPage = () => {
-  const [cards, setCards] = useState(cardList);
+  const [cards, setCards] = useState([]);
   const [isLoaded, setIsLoaded] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded((isLoaded) => {
-        !isLoaded;
-      });
-    }, 2000);
+    getTasks()
+    .then((data) => {
+      setCards(data.tasks);
+    })
+    .catch((err) => {
+      setError(err.message)
+    })
+    .finally(() => {
+      setIsLoaded(false);
+    })
   }, []);
 
   function addCard() {
@@ -36,7 +43,7 @@ const MainPage = () => {
     <>
       <Wrapper>
         <Header addCard={addCard} />
-        <Main cardList={cards} isLoaded={isLoaded} />
+        <Main cardList={cards} isLoaded={isLoaded} error={error} />
         <Outlet />
       </Wrapper>
     </>
