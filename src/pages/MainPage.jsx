@@ -2,7 +2,6 @@ import React from "react";
 import Main from "../components/Main/Main";
 import Header from "../components/Header/Header";
 import { useState } from "react";
-// import { cardList } from "../data";
 import { useEffect } from "react";
 import { Wrapper } from "../components/styles/shared";
 import "../App.css";

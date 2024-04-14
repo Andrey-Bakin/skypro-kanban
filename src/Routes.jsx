@@ -11,19 +11,20 @@ import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
 
 function checkLS() {
   try {
-    const user = JSON.parse(localStorage.getItem("user"))
+    const user = JSON.parse(localStorage.getItem("user"));
     return user;
   } catch (error) {
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
     return null;
   }
 }
+
 const AppRoutes = () => {
   const [user, setUser] = useState(checkLS());
   const navigate = useNavigate();
   function userLogin(newUser) {
-    localStorage.setItem("user", JSON.stringify(newUser))
-    setUser(newUser)
+    localStorage.setItem("user", JSON.stringify(newUser));
+    setUser(newUser);
     navigate(routesObject.MAIN);
   }
   function logout() {
@@ -35,15 +36,24 @@ const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route element={<PrivateRoutes user={user}/>}>
-          <Route path={routesObject.MAIN} element={<MainPage user={user}/>}>
-            <Route path={routesObject.EXIT} element={<ExitPage logout={logout}/>} />
+        <Route element={<PrivateRoutes user={user} />}>
+          <Route path={routesObject.MAIN} element={<MainPage user={user} />}>
+            <Route
+              path={routesObject.EXIT}
+              element={<ExitPage logout={logout} />}
+            />
             <Route path={routesObject.CARD} element={<CardPage />} />
           </Route>
         </Route>
 
-        <Route path={routesObject.LOGIN} element={<LoginPage userLogin={userLogin}/>} />
-        <Route path={routesObject.REGISTER} element={<RegisterPage userLogin={userLogin}/>} />
+        <Route
+          path={routesObject.LOGIN}
+          element={<LoginPage userLogin={userLogin} />}
+        />
+        <Route
+          path={routesObject.REGISTER}
+          element={<RegisterPage userLogin={userLogin} />}
+        />
         <Route path={routesObject.ERROR} element={<NotFoundPage />} />
       </Routes>
     </>

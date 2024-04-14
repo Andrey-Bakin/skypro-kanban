@@ -5,21 +5,20 @@ import * as S from "../Login/Login.styled";
 import { useState } from "react";
 import { loginTasks } from "../../api";
 
-
 function Login({ userLogin }) {
-  // const navigate = useNavigate();
-
-  // function login() {
-  //   setIsAuth(true);
-  //   navigate(routesObject.MAIN);
-  // }
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  
-  const handleLoginTasksClick = async () => {
-    await loginTasks( login, password ).then((responseData) => {
-        userLogin(responseData.user)
-    });
+  const [loginError, setLoginError] = useState(null);
+
+  const handleLoginTasksClick = async (event) => {
+    try {
+      event.preventDefault();
+      await loginTasks(login, password).then((responseData) => {
+        userLogin(responseData.user);
+      });
+    } catch (error) {
+      setLoginError(error.message);
+    }
   };
 
   return (
@@ -27,31 +26,30 @@ function Login({ userLogin }) {
       <S.LoginContainer>
         <S.LoginModal>
           <S.LoginModalBlock>
+            {loginError && (
+              <p style={{ color: "#f50e0e", fontSize: 15 }}>
+                Неправильный логин или пароль{" "}
+              </p>
+            )}
             <S.LoginModalTtl>
               <h2>Вход</h2>
             </S.LoginModalTtl>
-            <S.LoginModalForm id="formLogIn" action="#">
+            <S.LoginModalForm>
               <S.LoginModalInput
                 type="text"
                 value={login}
                 onChange={(e) => setLogin(e.target.value)}
-                // name="login"
-                // id="formlogin"
                 placeholder="Логин"
               />
               <S.LoginModalInput
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                // name="password"
-                // id="formpassword"
                 placeholder="Пароль"
               />
               <S.LoginModalBtnEnter
-                // id="btnEnter"
                 type="button"
                 onClick={handleLoginTasksClick}
-                // onClick={login}
               >
                 <Link to={routesObject.MAIN}>Войти</Link>
               </S.LoginModalBtnEnter>

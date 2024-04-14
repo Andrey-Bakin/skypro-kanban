@@ -6,10 +6,10 @@ import * as R from "../Register/Register.styled";
 import { useState } from "react";
 import { regTasks } from "../../api";
 
-function Register({userLogin}) {
-  cont [name, setName] = useState("");
-  cont [login, setLogin] = useState("");
-  cont [password, setPassword] = useState("");
+function Register({userLogin, error}) {
+  const [name, setName] = useState("");
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,6 +26,11 @@ function Register({userLogin}) {
           <S.LoginModal>
             <S.LoginModalBlock>
               <S.LoginModalTtl>
+              {error && (
+                <p style={{ color: "#f50e0e", fontSize: 15 }}>
+                  Пользователь с таким логином уже сущетсвует{" "}
+                </p>
+              )}
                 <h2>Регистрация</h2>
               </S.LoginModalTtl>
               <R.RegModalForm id="formLogUp" action="#">
@@ -33,7 +38,6 @@ function Register({userLogin}) {
                   onSubmit={handleSubmit}
                   type="text"
                   // name="first-name"
-                  // id="first-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Имя"
@@ -41,16 +45,18 @@ function Register({userLogin}) {
                 <S.LoginModalInput
                   type="text"
                   // name="login"
-                  // id="loginReg"
+                  value={login}
+                  onChange={(e) => setLogin(e.target.value)}
                   placeholder="Эл. почта"
                 />
                 <S.LoginModalInput
                   type="password"
                   // name="password"
-                  // id="passwordFirst"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Пароль"
                 />
-                <S.LoginModalBtnEnter id="SignUpEnter">
+                <S.LoginModalBtnEnter onClick={handleRegTasksClick}>
                   <Link to={routesObject.MAIN}>Зарегистрироваться</Link>
                 </S.LoginModalBtnEnter>
                 <S.LoginModalFormGroup>
