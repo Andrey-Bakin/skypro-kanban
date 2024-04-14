@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { routesObject } from "./lib/const";
 import MainPage from "./pages/MainPage";
 import ExitPage from "./pages/ExitPage";
@@ -10,19 +10,31 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
 
 const AppRoutes = () => {
-  const [isAuth, setIsAuth] = useState(false)
+  // const [isAuth, setIsAuth] = useState(false)
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  function userLogin(newUser) {
+    localStorage.setItem("user", JSON.stringify(newUser))
+    setUser(newUser)
+    navigate(routesObject.MAIN);
+  }
+  function logout() {
+    setUser(null);
+    navigate(routesObject.LOGIN);
+  }
+
   return (
     <>
       <Routes>
-        <Route element={<PrivateRoutes isAuth={isAuth}/>}>
-          <Route path={routesObject.MAIN} element={<MainPage />}>
-            <Route path={routesObject.EXIT} element={<ExitPage />} />
+        <Route element={<PrivateRoutes user={user}/>}>
+          <Route path={routesObject.MAIN} element={<MainPage user={user}/>}>
+            <Route path={routesObject.EXIT} element={<ExitPage logout={logout}/>} />
             <Route path={routesObject.CARD} element={<CardPage />} />
           </Route>
         </Route>
 
-        <Route path={routesObject.LOGIN} element={<LoginPage setIsAuth={setIsAuth}/>} />
-        <Route path={routesObject.REGISTER} element={<RegisterPage />} />
+        <Route path={routesObject.LOGIN} element={<LoginPage userLogin={userLogin}/>} />
+        <Route path={routesObject.REGISTER} element={<RegisterPage userLogin={userLogin}/>} />
         <Route path={routesObject.ERROR} element={<NotFoundPage />} />
       </Routes>
     </>

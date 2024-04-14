@@ -4,7 +4,7 @@ import * as S from "./Header.styled";
 import { Container } from "../styles/shared";
 import { Link } from "react-router-dom";
 
-function Header ({addCard}) {
+function Header ({addCard, user}) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
     setIsOpened((isOpened) => !isOpened);
@@ -28,7 +28,7 @@ function Header ({addCard}) {
               <a href="#">Создать новую задачу</a>
             </S.HeaderButton>
             <S.HeaderUser onClick={togglePopUp}>
-              Ivan Ivanov
+              {user}
             </S.HeaderUser>
             {isOpened && <PopUser />}
           </S.HeaderNav>

@@ -2,20 +2,20 @@ import React from "react";
 import Main from "../components/Main/Main";
 import Header from "../components/Header/Header";
 import { useState } from "react";
-import { cardList } from "../data";
+// import { cardList } from "../data";
 import { useEffect } from "react";
 import { Wrapper } from "../components/styles/shared";
 import "../App.css";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../api";
 
-const MainPage = () => {
+const MainPage = ({user}) => {
   const [cards, setCards] = useState([]);
   const [isLoaded, setIsLoaded] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getTasks()
+    getTasks({token: user.token})
     .then((data) => {
       setCards(data.tasks);
     })
@@ -25,7 +25,7 @@ const MainPage = () => {
     .finally(() => {
       setIsLoaded(false);
     })
-  }, []);
+  }, [user]);
 
   function addCard() {
     setCards([
@@ -42,8 +42,8 @@ const MainPage = () => {
   return (
     <>
       <Wrapper>
-        <Header addCard={addCard} />
-        <Main cardList={cards} isLoaded={isLoaded} error={error} />
+        <Header addCard={addCard} user={user.name}/>
+        <Main user={user} cardList={cards} isLoaded={isLoaded} error={error} />
         <Outlet />
       </Wrapper>
     </>

@@ -15,7 +15,8 @@ function Main({ cardList, isLoaded, error}) {
     <S.Main>
       <Container>
         <S.MainBlock>
-          <S.MainContent>
+        {error && (<p style={{color: "#f50e0e", fontSize: 25}}>Произошла ошибка, попробуйте позже...{" "}</p>)}
+          <S.MainContent style={{ display: error ? "none" : "flex"}}>
             {isLoaded? "Данные загружаются" :
             statusList.map((status, index) => (
               <Column
@@ -24,7 +25,6 @@ function Main({ cardList, isLoaded, error}) {
                 cardList={cardList.filter((card) => card.status === status)}
               />
             ))}
-            {error && (<p style={{color: "#f50e0e", fontSize: 25}}>Произошла ошибка, попробуйте позже...{" "}</p>)}
           </S.MainContent>
         </S.MainBlock>
       </Container>

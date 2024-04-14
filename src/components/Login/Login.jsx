@@ -1,15 +1,26 @@
 import { Link, useNavigate } from "react-router-dom";
 import { routesObject } from "../../lib/const";
 import { Wrapper } from "../styles/shared";
-import * as S from "../Login/Login.styled"
+import * as S from "../Login/Login.styled";
+import { useState } from "react";
+import { loginTasks } from "../../api";
 
-function Login({ setIsAuth }) {
-  const navigate = useNavigate();
 
-  function login() {
-    setIsAuth(true);
-    navigate(routesObject.MAIN);
-  }
+function Login({ userLogin }) {
+  // const navigate = useNavigate();
+
+  // function login() {
+  //   setIsAuth(true);
+  //   navigate(routesObject.MAIN);
+  // }
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const handleLoginTasksClick = async () => {
+    await loginTasks( login, password ).then((responseData) => {
+        userLogin(responseData.user)
+    });
+  };
 
   return (
     <Wrapper>
@@ -22,21 +33,27 @@ function Login({ setIsAuth }) {
             <S.LoginModalForm id="formLogIn" action="#">
               <S.LoginModalInput
                 type="text"
-                name="login"
-                id="formlogin"
-                placeholder="Эл. почта"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                // name="login"
+                // id="formlogin"
+                placeholder="Логин"
               />
               <S.LoginModalInput
                 type="password"
-                name="password"
-                id="formpassword"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                // name="password"
+                // id="formpassword"
                 placeholder="Пароль"
               />
-              <S.LoginModalBtnEnter 
-              id="btnEnter" 
-              type="button" 
-              onClick={login}>
-                  Войти
+              <S.LoginModalBtnEnter
+                // id="btnEnter"
+                type="button"
+                onClick={handleLoginTasksClick}
+                // onClick={login}
+              >
+                <Link to={routesObject.MAIN}>Войти</Link>
               </S.LoginModalBtnEnter>
               <S.LoginModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>
