@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as S from "./Card.styled";
 
-function Card({ topic, title, date, id }) {
+function Card({ topic, title, date, _id }) {
   const getClassName = (name) => {
     switch (name.toLowerCase()) {
       case "copywriting":
@@ -22,7 +22,7 @@ function Card({ topic, title, date, id }) {
             <p>{topic}</p>
           </S.CardTopic>
 
-            <Link to={`/card/${id}`}>
+            <Link to={`/card/${_id}`}>
               <S.CardBtn>
                 <div />
                 <div />

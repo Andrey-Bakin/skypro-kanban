@@ -31,7 +31,7 @@ const MainPage = ({user}) => {
     setCards([
       ...cards,
       {
-        id: cards.length + 1,
+        _id: cards.length + 1,
         topic: "Тема",
         title: "Название задачи",
         date: "30.10.23",

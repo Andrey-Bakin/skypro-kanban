@@ -9,9 +9,17 @@ import CardPage from "./pages/CardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
 
+function checkLS() {
+  try {
+    const user = JSON.parse(localStorage.getItem("user"))
+    return user;
+  } catch (error) {
+    localStorage.removeItem("user")
+    return null;
+  }
+}
 const AppRoutes = () => {
-  // const [isAuth, setIsAuth] = useState(false)
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(checkLS());
   const navigate = useNavigate();
   function userLogin(newUser) {
     localStorage.setItem("user", JSON.stringify(newUser))
@@ -19,6 +27,7 @@ const AppRoutes = () => {
     navigate(routesObject.MAIN);
   }
   function logout() {
+    localStorage.removeItem("user");
     setUser(null);
     navigate(routesObject.LOGIN);
   }

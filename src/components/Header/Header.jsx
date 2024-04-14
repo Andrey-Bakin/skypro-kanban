@@ -30,7 +30,7 @@ function Header ({addCard, user}) {
             <S.HeaderUser onClick={togglePopUp}>
               {user}
             </S.HeaderUser>
-            {isOpened && <PopUser />}
+            {isOpened && <PopUser user={user}/>}
           </S.HeaderNav>
         </S.HeaderBlock>
       </Container>
