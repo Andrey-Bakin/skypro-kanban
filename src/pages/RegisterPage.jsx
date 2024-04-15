@@ -1,10 +1,10 @@
 import React from 'react';
 import Register from '../components/Register/Register';
 
-const RegisterPage = ({userLogin, error}) => {
+const RegisterPage = ({userLogin}) => {
   
   return (
-    <Register userLogin={userLogin} error={error}/>
+    <Register userLogin={userLogin} />
   )
 }
 

@@ -6,7 +6,7 @@ import * as R from "../Register/Register.styled";
 import { useState } from "react";
 import { regTasks } from "../../api";
 
-function Register({userLogin, error}) {
+function Register({userLogin}) {
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -26,11 +26,11 @@ function Register({userLogin, error}) {
           <S.LoginModal>
             <S.LoginModalBlock>
               <S.LoginModalTtl>
-              {error && (
+              {/* {error && (
                 <p style={{ color: "#f50e0e", fontSize: 15 }}>
                   Пользователь с таким логином уже сущетсвует{" "}
                 </p>
-              )}
+              )} */}
                 <h2>Регистрация</h2>
               </S.LoginModalTtl>
               <R.RegModalForm id="formLogUp" action="#">

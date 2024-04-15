@@ -8,7 +8,7 @@ import { loginTasks } from "../../api";
 function Login({ userLogin }) {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(null);
+  // const [loginError, setLoginError] = useState(null);
 
   const handleLoginTasksClick = async (event) => {
       event.preventDefault();
@@ -22,11 +22,11 @@ function Login({ userLogin }) {
       <S.LoginContainer>
         <S.LoginModal>
           <S.LoginModalBlock>
-            {loginError && (
+            {/* {loginError && (
               <p style={{ color: "#f50e0e", fontSize: 15 }}>
                 Неправильный логин или пароль{" "}
               </p>
-            )}
+            )} */}
             <S.LoginModalTtl>
               <h2>Вход</h2>
             </S.LoginModalTtl>
