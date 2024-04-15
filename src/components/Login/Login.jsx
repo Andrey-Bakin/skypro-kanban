@@ -11,14 +11,10 @@ function Login({ userLogin }) {
   const [loginError, setLoginError] = useState(null);
 
   const handleLoginTasksClick = async (event) => {
-    try {
       event.preventDefault();
       await loginTasks(login, password).then((responseData) => {
         userLogin(responseData.user);
       });
-    } catch (error) {
-      setLoginError(error.message);
-    }
   };
 
   return (
