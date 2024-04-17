@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Wrapper } from "../components/styles/shared";
-import "../App.css";
+// import "../App.css";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../api";
 

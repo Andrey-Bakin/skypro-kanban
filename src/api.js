@@ -1,5 +1,10 @@
+const baseUrl = "https://wedev-api.sky.pro/api";
+const getTasksUrl = "/kanban";
+const loginTasksUrl = "/user/login";
+const regTasksUrl = "/user";
+
 export async function getTasks({token}) {
-    const response = await fetch("https://wedev-api.sky.pro/api/kanban", {
+    const response = await fetch(baseUrl + getTasksUrl, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -15,7 +20,7 @@ export async function getTasks({token}) {
 }
 
 export async function loginTasks( login, password ) {
-    const response = await fetch("https://wedev-api.sky.pro/api/user/login", {
+    const response = await fetch(baseUrl + loginTasksUrl, {
         method: "POST",
         body: JSON.stringify({
             login,
@@ -32,7 +37,7 @@ export async function loginTasks( login, password ) {
 }
 
 export async function regTasks( name, login, password ) {
-    const response = await fetch("https://wedev-api.sky.pro/api/user", {
+    const response = await fetch(baseUrl + regTasksUrl, {
         method: "POST",
         body: JSON.stringify({
             name,
