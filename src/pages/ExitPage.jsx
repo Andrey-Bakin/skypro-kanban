@@ -1,9 +1,9 @@
 import React from 'react';
 import PopExit from '../components/popups/PopExit/PopExit';
 
-const ExitPage = () => {
+const ExitPage = ({logout}) => {
   return (
-   <PopExit/>
+   <PopExit logout={logout}/>
   )
 }
 

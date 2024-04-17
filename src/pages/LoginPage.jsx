@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Login from '../components/Login/Login';
 
-const LoginPage = ({setIsAuth}) => {
+const LoginPage = ({userLogin}) => {
+
   return (
-    <Login setIsAuth={setIsAuth}/>
+    <Login userLogin={userLogin} />
   )
 }
 

@@ -3,11 +3,11 @@ import * as S from "./PopUser.styled";
 import { routesObject } from "../../../lib/const";
 
 
-function PopUser () {
+function PopUser ({user}) {
     return (
         <S.PopUser>
             {/* <a href="">x</a> */}
-            <S.PopUserName>Ivan Ivanov</S.PopUserName>
+            <S.PopUserName>{user}</S.PopUserName>
             <S.PopUserMail>ivan.ivanov@gmail.com</S.PopUserMail>
             <S.PopUserTheme>
               <p>Темная тема</p>

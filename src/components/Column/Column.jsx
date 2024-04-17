@@ -8,7 +8,7 @@ function Column({ status, cardList }) {
         <p>{status}</p>
       </S.ColumnTitle>
       <S.Cards>
-        {cardList.map((card) => <Card key={card.id} {...card}/>)}
+        {cardList.map((card) => <Card key={card._id} {...card}/>)}
       </S.Cards>
     </S.MainColumn>
   );
