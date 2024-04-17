@@ -3,53 +3,53 @@ const getTasksUrl = "/kanban";
 const loginTasksUrl = "/user/login";
 const regTasksUrl = "/user";
 
-export async function getTasks({token}) {
-    const response = await fetch(baseUrl + getTasksUrl, {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-        method: "GET",
-    });
+export async function getTasks({ token }) {
+  const response = await fetch(baseUrl + getTasksUrl, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "GET",
+  });
 
-    if (!response.ok) {
-        throw new Error("Ошибка сервера");
-    }
+  if (!response.ok) {
+    throw new Error("Ошибка сервера");
+  }
 
-    const data = await response.json();
-    return data;
+  const data = await response.json();
+  return data;
 }
 
-export async function loginTasks( login, password ) {
-    const response = await fetch(baseUrl + loginTasksUrl, {
-        method: "POST",
-        body: JSON.stringify({
-            login,
-            password,
-        }),
-    });
+export async function loginTasks(login, password) {
+  const response = await fetch(baseUrl + loginTasksUrl, {
+    method: "POST",
+    body: JSON.stringify({
+      login,
+      password,
+    }),
+  });
 
-    if (response.status === 400) {
-        throw new Error("Неправильный логин или пароль");
-    }
+  if (response.status === 400) {
+    throw new Error("Неправильный логин или пароль");
+  }
 
-    const data = await response.json();
-    return data;
+  const data = await response.json();
+  return data;
 }
 
-export async function regTasks( name, login, password ) {
-    const response = await fetch(baseUrl + regTasksUrl, {
-        method: "POST",
-        body: JSON.stringify({
-            name,
-            login,
-            password,
-        }),
-    });
+export async function regTasks(name, login, password) {
+  const response = await fetch(baseUrl + regTasksUrl, {
+    method: "POST",
+    body: JSON.stringify({
+      name,
+      login,
+      password,
+    }),
+  });
 
-    if (response.status === 400) {
-        throw new Error("Пользователь с таким логином уже сущетсвует");
-    }
+  if (response.status === 400) {
+    throw new Error("Пользователь с таким логином уже сущетсвует");
+  }
 
-    const data = await response.json();
-    return data;
+  const data = await response.json();
+  return data;
 }
