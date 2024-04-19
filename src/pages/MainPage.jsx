@@ -7,8 +7,10 @@ import { Wrapper } from "../components/styles/shared";
 // import "../App.css";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../api";
+import { useUserContext } from "../contexts/hooks/useUser";
 
-const MainPage = ({user}) => {
+const MainPage = () => {
+  const {user} = useUserContext();
   const [cards, setCards] = useState([]);
   const [isLoaded, setIsLoaded] = useState(true);
   const [error, setError] = useState(null);

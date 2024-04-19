@@ -5,8 +5,10 @@ import * as S from "../Login/Login.styled";
 import * as R from "../Register/Register.styled";
 import { useState } from "react";
 import { regTasks } from "../../api";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-function Register({userLogin}) {
+function Register() {
+  const {userLogin} = useUserContext();
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");

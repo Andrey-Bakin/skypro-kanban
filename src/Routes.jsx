@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import { routesObject } from "./lib/const";
 import MainPage from "./pages/MainPage";
 import ExitPage from "./pages/ExitPage";
@@ -10,38 +10,18 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
 import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
 
-function checkLS() {
-  try {
-    const user = JSON.parse(localStorage.getItem("user"));
-    return user;
-  } catch (error) {
-    localStorage.removeItem("user");
-    return null;
-  }
-}
+
 
 const AppRoutes = () => {
-  const [user, setUser] = useState(checkLS());
-  const navigate = useNavigate();
-  function userLogin(newUser) {
-    localStorage.setItem("user", JSON.stringify(newUser));
-    setUser(newUser);
-    navigate(routesObject.MAIN);
-  }
-  function logout() {
-    localStorage.removeItem("user");
-    setUser(null);
-    navigate(routesObject.LOGIN);
-  }
 
   return (
     <>
       <Routes>
-        <Route element={<PrivateRoutes user={user} />}>
-          <Route path={routesObject.MAIN} element={<MainPage user={user} />}>
+        <Route element={<PrivateRoutes />}>
+          <Route path={routesObject.MAIN} element={<MainPage />}>
             <Route
               path={routesObject.EXIT}
-              element={<ExitPage logout={logout} />}
+              element={<ExitPage />}
             />
             <Route path={routesObject.CARD} element={<CardPage />} />
             <Route path={routesObject.NEWCARD} element={<PopNewCard />} />
@@ -50,11 +30,11 @@ const AppRoutes = () => {
 
         <Route
           path={routesObject.LOGIN}
-          element={<LoginPage userLogin={userLogin} />}
+          element={<LoginPage />}
         />
         <Route
           path={routesObject.REGISTER}
-          element={<RegisterPage userLogin={userLogin} />}
+          element={<RegisterPage  />}
         />
         <Route path={routesObject.ERROR} element={<NotFoundPage />} />
       </Routes>
