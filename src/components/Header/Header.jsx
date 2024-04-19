@@ -25,7 +25,7 @@ function Header ({addCard, user}) {
           </S.HeaderLogoDark>
           <S.HeaderNav>
             <S.HeaderButton onClick={addCard}>
-              <a href="#">Создать новую задачу</a>
+              <Link to="/new-card">Создать новую задачу</Link>
             </S.HeaderButton>
             <S.HeaderUser onClick={togglePopUp}>
               {user}

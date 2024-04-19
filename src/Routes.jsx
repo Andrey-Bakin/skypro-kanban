@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import CardPage from "./pages/CardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
+import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
 
 function checkLS() {
   try {
@@ -43,6 +44,7 @@ const AppRoutes = () => {
               element={<ExitPage logout={logout} />}
             />
             <Route path={routesObject.CARD} element={<CardPage />} />
+            <Route path={routesObject.NEWCARD} element={<PopNewCard />} />
           </Route>
         </Route>
 
