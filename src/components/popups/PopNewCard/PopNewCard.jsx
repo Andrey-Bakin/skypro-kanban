@@ -2,15 +2,18 @@ import { Link, useNavigate } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import * as S from "../PopNewCard/PopNewCard.styled";
 import { routesObject } from "../../../lib/const";
-import { topicStyles, topicHeader } from "../../../lib/topic";
+import { topicHeader } from "../../../lib/topic";
 import { useState } from "react";
 import { useUserContext } from "../../../contexts/hooks/useUser";
+import { useTaskContext } from "../../../contexts/hooks/useTask";
+import { postTasks } from "../../../api";
 
 function PopNewCard() {
-  const {setCards} = useTaskContext();
+  const { setCards } = useTaskContext();
   const { user } = useUserContext();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+  const [selected, setSelected] = useState();
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -21,15 +24,14 @@ function PopNewCard() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const taskData = { ...newTask, date: selected };
-    postToDo({ ...taskData, token: user.token })
-
+    postTasks({ ...taskData, token: user.token })
       .then((responseData) => {
         setCards(responseData.tasks);
         navigate(-1);
       })
       .catch((err) => {
         setError(err.message);
-      }); 
+      });
   };
 
   return (
@@ -46,6 +48,7 @@ function PopNewCard() {
                 <S.PopNewCardFormNewBlock>
                   <label>Название задачи</label>
                   <input
+                    onChange={(e)=> setNewTask({...newTask, title:e.target.value})}
                     type="text"
                     name="name"
                     placeholder="Введите название задачи..."
@@ -55,19 +58,24 @@ function PopNewCard() {
                 <S.PopNewCardFormNewBlock>
                   <label>Описание задачи</label>
                   <textarea
+                    onChange={(e)=> setNewTask({...newTask, description:e.target.value})}
                     name="text"
                     placeholder="Введите описание задачи..."
                     defaultValue={""}
                   />
                 </S.PopNewCardFormNewBlock>
               </S.PopNewCardForm>
-              <Calendar />
+              <S.PopNewCardCalendar>
+                <p>Даты</p>
+                <Calendar selected={selected} setSelected={setSelected}/>
+              </S.PopNewCardCalendar>
             </S.PopNewCardWrap>
             <S.PopNewCardCategories>
               <p>Категория</p>
               <S.CategoriesThemes>
-              <S.CategoriesTheme htmlFor="radio1"
-                 $topicColor={topicHeader["Web Design"]}
+                <S.CategoriesTheme
+                  htmlFor="radio1"
+                  $topicColor={topicHeader["Web Design"]}
                 >
                   Web Design
                   <input
@@ -103,6 +111,7 @@ function PopNewCard() {
                     onChange={(e) =>
                       setNewTask({ ...newTask, topic: e.target.value })
                     }
+                    // checked
                     type="radio"
                     id="radio3"
                     value="Copywriting"
@@ -110,8 +119,10 @@ function PopNewCard() {
                 </S.CategoriesTheme>
               </S.CategoriesThemes>
             </S.PopNewCardCategories>
-            <S.FormNewCreate onClick={handleSubmit} >Создать задачу</S.FormNewCreate>
-            {error && (<p style={{color: "red"}}>{error}</p> ) }
+            <S.FormNewCreate onClick={handleSubmit}>
+              Создать задачу
+            </S.FormNewCreate>
+            {error && <p style={{ color: "red" }}>{error}</p>}
           </S.PopNewCardContent>
         </S.PopNewCardBlock>
       </S.PopNewCardContainer>

@@ -10,8 +10,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
 import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
 
-
-
 const AppRoutes = () => {
 
   return (
@@ -23,7 +21,7 @@ const AppRoutes = () => {
               path={routesObject.EXIT}
               element={<ExitPage />}
             />
-            <Route path={routesObject.CARD} element={<CardPage />} />
+            <Route path={`${routesObject.CARD}/:cardId`} element={<CardPage />} />
             <Route path={routesObject.NEWCARD} element={<PopNewCard />} />
           </Route>
         </Route>

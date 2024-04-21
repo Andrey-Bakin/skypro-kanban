@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Hover } from "../../styles/shared";
 import { topicStyles } from "../../../lib/topic";
 
-
 export const PopNewCard = styled.div`
     display: block;
     width: 100%;
@@ -31,7 +30,7 @@ export const PopNewCardBlock = styled.div`
     display: block;
     margin: 0 auto;
     background-color: #FFFFFF;
-    max-width: 630px;
+    max-width: 720px;
     width: 100%;
     padding: 40px 30px 48px;
     border-radius: 10px;
@@ -66,7 +65,7 @@ export const PopNewCardClose = styled.div`
 export const PopNewCardWrap = styled.div`
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 `;
 
 export const PopNewCardForm = styled.form`
@@ -141,6 +140,20 @@ export const PopNewCardFormNewBlock = styled.div`
     }
 `;
 
+export const PopNewCardCalendar = styled.div`
+    width: 182px;
+    margin-bottom: 20px;    
+    & p {
+        margin-bottom: 14px;
+        margin-left: 17px;
+        padding: 0 7px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+    }
+`;
+
 export const PopNewCardCategories = styled.div`
     margin-bottom: 20px;
     & p {
@@ -161,60 +174,6 @@ export const CategoriesThemes = styled.div`
 	    display: none;
     }
 `;
-
-// export const CategoriesThemeOrange = styled.div`
-//     display: inline-block;
-//     width: auto;
-//     height: 30px;
-//     padding: 8px 20px;
-//     border-radius: 24px;
-//     margin-right: 7px;
-//     opacity: 0.4;
-//     background-color: #FFE4C2;
-//     & p {
-//         font-size: 14px;
-//         font-weight: 600;
-//         line-height: 14px;
-//         white-space: nowrap;
-//         color: #FF6D00;
-//     }
-// `;
-
-// export const CategoriesThemeGreen = styled.div`
-//     display: inline-block;
-//     width: auto;
-//     height: 30px;
-//     padding: 8px 20px;
-//     border-radius: 24px;
-//     margin-right: 7px;
-//     opacity: 0.4;
-//     background-color: #B4FDD1;
-//     & p {
-//         font-size: 14px;
-//         font-weight: 600;
-//         line-height: 14px;
-//         white-space: nowrap;
-//         color: #06B16E;
-//     }
-// `;
-
-// export const CategoriesThemePurple = styled.div`
-//     display: inline-block;
-//     width: auto;
-//     height: 30px;
-//     padding: 8px 20px;
-//     border-radius: 24px;
-//     margin-right: 7px;
-//     opacity: 0.4;
-//     background-color: #E9D4FF;
-//     & p {
-//         font-size: 14px;
-//         font-weight: 600;
-//         line-height: 14px;
-//         white-space: nowrap;
-//         color: #9A48F1;
-//     }
-// `;
 
 export const CategoriesTheme = styled.label`
   &:hover {
@@ -262,7 +221,7 @@ export const FormNewCreate = styled.button`
   color: #ffffff;
   float: right;
   &:hover {
-  background-color: #33399b;
-  color: #ffffff;
-}
+    background-color: #33399b;
+    color: #ffffff;
+    }
 `;

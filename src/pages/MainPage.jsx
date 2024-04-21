@@ -8,10 +8,12 @@ import { Wrapper } from "../components/styles/shared";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../api";
 import { useUserContext } from "../contexts/hooks/useUser";
+import { useTaskContext } from "../contexts/hooks/useTask";
 
 const MainPage = () => {
   const {user} = useUserContext();
-  const [cards, setCards] = useState([]);
+  const { setCards } = useTaskContext();
+  const { cards } = useTaskContext([]);
   const [isLoaded, setIsLoaded] = useState(true);
   const [error, setError] = useState(null);
 
@@ -28,22 +30,22 @@ const MainPage = () => {
     })
   }, [user]);
 
-  function addCard() {
-    setCards([
-      ...cards,
-      {
-        _id: cards.length + 1,
-        topic: "Тема",
-        title: "Название задачи",
-        date: "30.10.23",
-        status: "Без статуса",
-      },
-    ]);
-  }
+  // function addCard() {
+  //   setCards([
+  //     ...cards,
+  //     {
+  //       _id: cards.length + 1,
+  //       topic: "Тема",
+  //       title: "Название задачи",
+  //       date: "30.10.23",
+  //       status: "Без статуса",
+  //     },
+  //   ]);
+  // }
   return (
     <>
       <Wrapper>
-        <Header addCard={addCard} user={user.name}/>
+        <Header />
         <Main user={user} cardList={cards} isLoaded={isLoaded} error={error} />
         <Outlet />
       </Wrapper>

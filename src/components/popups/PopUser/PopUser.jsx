@@ -10,7 +10,7 @@ function PopUser () {
         <S.PopUser>
             {/* <a href="">x</a> */}
             <S.PopUserName>{user.name}</S.PopUserName>
-            <S.PopUserMail>ivan.ivanov@gmail.com</S.PopUserMail>
+            <S.PopUserMail>{user.login}</S.PopUserMail>
             <S.PopUserTheme>
               <p>Темная тема</p>
               <S.PopUserSetThemeInput type="checkbox" />
