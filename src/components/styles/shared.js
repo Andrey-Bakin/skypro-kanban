@@ -1,6 +1,12 @@
 import { css } from "styled-components"
 import styled from "styled-components";
 
+export const Hover = css`
+&:hover {
+    color: #000000;
+}
+`;
+
 export const Hover01 = css`
 &:hover {
     background-color: #33399b;

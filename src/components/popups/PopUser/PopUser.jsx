@@ -9,7 +9,7 @@ function PopUser () {
     return (
         <S.PopUser>
             {/* <a href="">x</a> */}
-            <S.PopUserName>{user}</S.PopUserName>
+            <S.PopUserName>{user.name}</S.PopUserName>
             <S.PopUserMail>ivan.ivanov@gmail.com</S.PopUserMail>
             <S.PopUserTheme>
               <p>Темная тема</p>

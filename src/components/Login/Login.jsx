@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { routesObject } from "../../lib/const";
 import { Wrapper } from "../styles/shared";
 import * as S from "../Login/Login.styled";
