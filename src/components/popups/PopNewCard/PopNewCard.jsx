@@ -31,6 +31,7 @@ function PopNewCard() {
       })
       .catch((err) => {
         setError(err.message);
+        console.log(err.message);
       });
   };
 
@@ -111,7 +112,6 @@ function PopNewCard() {
                     onChange={(e) =>
                       setNewTask({ ...newTask, topic: e.target.value })
                     }
-                    // checked
                     type="radio"
                     id="radio3"
                     value="Copywriting"
