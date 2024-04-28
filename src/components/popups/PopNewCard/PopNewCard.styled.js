@@ -172,7 +172,10 @@ export const CategoriesThemes = styled.div`
     justify-content: flex-start;
     input[type=radio] {
 	    display: none;
+        &:checked {
+        opacity: 1 !important;
     }
+    }  
 `;
 
 export const CategoriesTheme = styled.label`

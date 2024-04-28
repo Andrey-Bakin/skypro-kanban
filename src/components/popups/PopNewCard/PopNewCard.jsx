@@ -86,6 +86,7 @@ function PopNewCard() {
                     type="radio"
                     id="radio1"
                     value="Web Design"
+                    checked={newTask.topic === "Web Design" }
                   />
                 </S.CategoriesTheme>
 
@@ -101,6 +102,7 @@ function PopNewCard() {
                     type="radio"
                     id="radio2"
                     value="Research"
+                    checked={newTask.topic === "Research"}
                   />
                 </S.CategoriesTheme>
                 <S.CategoriesTheme
@@ -115,6 +117,7 @@ function PopNewCard() {
                     type="radio"
                     id="radio3"
                     value="Copywriting"
+                    checked={newTask.topic === "Copywriting"}
                   />
                 </S.CategoriesTheme>
               </S.CategoriesThemes>
