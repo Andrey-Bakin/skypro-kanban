@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import Login from '../components/Login/Login';
 
-const LoginPage = ({userLogin}) => {
+const LoginPage = () => {
 
   return (
-    <Login userLogin={userLogin} />
+    <Login />
   )
 }
 

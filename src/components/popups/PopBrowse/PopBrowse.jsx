@@ -4,7 +4,7 @@ import Calendar from "../../Calendar/Calendar";
 
 function PopBrowse() {
   const {id} = useParams()
-  
+ 
   return (
     <div className="pop-browse" id="popBrowse">
       <div className="pop-browse__container">

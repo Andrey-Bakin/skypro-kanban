@@ -1,19 +1,26 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { routesObject } from "../../lib/const";
 import { Wrapper } from "../styles/shared";
 import * as S from "../Login/Login.styled";
 import { useState } from "react";
 import { loginTasks } from "../../api";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-function Login({ userLogin }) {
+function Login() {
+  const {userLogin} = useUserContext();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  // const [loginError, setLoginError] = useState(null);
+  const [loginError, setLoginError] = useState(null);
 
   const handleLoginTasksClick = async (event) => {
       event.preventDefault();
+      
       await loginTasks(login, password).then((responseData) => {
         userLogin(responseData.user);
+      })
+      .catch((err) => {
+      setLoginError (err.message);
+      console.log(err.message)
       });
   };
 
@@ -22,11 +29,6 @@ function Login({ userLogin }) {
       <S.LoginContainer>
         <S.LoginModal>
           <S.LoginModalBlock>
-            {/* {loginError && (
-              <p style={{ color: "#f50e0e", fontSize: 15 }}>
-                Неправильный логин или пароль{" "}
-              </p>
-            )} */}
             <S.LoginModalTtl>
               <h2>Вход</h2>
             </S.LoginModalTtl>
@@ -49,6 +51,11 @@ function Login({ userLogin }) {
               >
                 <Link to={routesObject.MAIN}>Войти</Link>
               </S.LoginModalBtnEnter>
+              {loginError && (
+              <p style={{ color: "#f50e0e", fontSize: 15 }}>
+                Неправильный логин или пароль{" "}
+              </p>
+            )}
               <S.LoginModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>
                 <Link to={routesObject.REGISTER}>Регистрируйтесь здесь</Link>

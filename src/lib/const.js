@@ -5,4 +5,5 @@ export const routesObject = {
     LOGIN: "/login",
     REGISTER: "/register",
     CARD: "/card/:id",
+    NEWCARD: "/new-card",
 }

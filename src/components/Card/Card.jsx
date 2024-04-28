@@ -1,40 +1,42 @@
 import { Link } from "react-router-dom";
 import * as S from "./Card.styled";
+import { routesObject } from "../../lib/const";
 
 function Card({ topic, title, date, _id }) {
-  const getClassName = (name) => {
-    switch (name.toLowerCase()) {
-      case "copywriting":
-        return "_purple";
-      case "research":
-        return "_green";
-      case "web desing":
-        return "_orange";
-      default:
-        return "_gray";
-    }
-  };
+
+  let color;
+  switch (topic) {
+    case "Web Design":
+      color = "_orange";
+      break;
+    case "Research":
+      color = "_green";
+      break;
+    case "Copywriting":
+      color = "_purple";
+      break;
+    default:
+      color = "_gray";
+      break;
+  }
+
   return (
     <S.CardsItem>
       <S.CardsCard>
         <S.CardGroup>
-          <S.CardTopic $topic={getClassName(topic)}>
+          <S.CardTopic $topic={color}>
             <p>{topic}</p>
           </S.CardTopic>
-
-            <Link to={`/card/${_id}`}>
+            <Link to={`${routesObject.CARD}/${_id}`}>
               <S.CardBtn>
                 <div />
                 <div />
                 <div />
               </S.CardBtn>
             </Link>
-        
         </S.CardGroup>
         <S.CardContent>
-          
             <S.CardTitle>{title}</S.CardTitle>
-         
           <S.CardDate>
             <svg
               xmlns="http://www.w3.org/2000/svg"

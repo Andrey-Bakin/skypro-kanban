@@ -3,8 +3,11 @@ import { useState } from "react"
 import * as S from "./Header.styled";
 import { Container } from "../styles/shared";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../contexts/hooks/useUser";
+import { routesObject } from "../../lib/const";
 
-function Header ({addCard, user}) {
+function Header () {
+  const { user } = useUserContext();
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
     setIsOpened((isOpened) => !isOpened);
@@ -14,7 +17,7 @@ function Header ({addCard, user}) {
       <Container>
         <S.HeaderBlock>
           <S.HeaderLogo>
-            <Link to="/" target="_self">
+            <Link to={routesObject.MAIN} target="_self">
               <img src="public/logo.png" alt="logo" />
             </Link>
           </S.HeaderLogo>
@@ -24,13 +27,13 @@ function Header ({addCard, user}) {
             </a>
           </S.HeaderLogoDark>
           <S.HeaderNav>
-            <S.HeaderButton onClick={addCard}>
-              <a href="#">Создать новую задачу</a>
+            <S.HeaderButton >
+              <Link to={routesObject.NEWCARD}>Создать новую задачу</Link>
             </S.HeaderButton>
             <S.HeaderUser onClick={togglePopUp}>
-              {user}
+              {user.name}
             </S.HeaderUser>
-            {isOpened && <PopUser user={user}/>}
+            {isOpened && <PopUser />}
           </S.HeaderNav>
         </S.HeaderBlock>
       </Container>

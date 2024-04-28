@@ -5,11 +5,14 @@ import * as S from "../Login/Login.styled";
 import * as R from "../Register/Register.styled";
 import { useState } from "react";
 import { regTasks } from "../../api";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-function Register({userLogin}) {
+function Register() {
+  const {userLogin} = useUserContext();
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [regError, setRegError] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +20,11 @@ function Register({userLogin}) {
   const handleRegTasksClick = async () => {
     await regTasks(name, login, password).then((responseData) => {
       userLogin(responseData.user);
-    });
+    })
+    .catch((err) => {
+      setRegError (err.message);
+      console.log(err.message)
+      });
   };
 
     return (
@@ -26,32 +33,24 @@ function Register({userLogin}) {
           <S.LoginModal>
             <S.LoginModalBlock>
               <S.LoginModalTtl>
-              {/* {error && (
-                <p style={{ color: "#f50e0e", fontSize: 15 }}>
-                  Пользователь с таким логином уже сущетсвует{" "}
-                </p>
-              )} */}
                 <h2>Регистрация</h2>
               </S.LoginModalTtl>
               <R.RegModalForm id="formLogUp" action="#">
                 <S.LoginModalInput
                   onSubmit={handleSubmit}
                   type="text"
-                  // name="first-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Имя"
                 />
                 <S.LoginModalInput
                   type="text"
-                  // name="login"
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
                   placeholder="Эл. почта"
                 />
                 <S.LoginModalInput
                   type="password"
-                  // name="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Пароль"
@@ -59,6 +58,11 @@ function Register({userLogin}) {
                 <S.LoginModalBtnEnter onClick={handleRegTasksClick}>
                   <Link to={routesObject.MAIN}>Зарегистрироваться</Link>
                 </S.LoginModalBtnEnter>
+                {regError && (
+                <p style={{ color: "#f50e0e", fontSize: "11px" }}>
+                  Пользователь с таким логином уже сущетсвует{" "}
+                </p>
+                )}
                 <S.LoginModalFormGroup>
                   <p>
                     Уже есть аккаунт? <Link to={routesObject.LOGIN}>Войдите здесь</Link>

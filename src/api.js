@@ -19,6 +19,27 @@ export async function getTasks({ token }) {
   return data;
 }
 
+export async function postTasks({ title, topic, description, date, token }) {
+  const response = await fetch(baseUrl + getTasksUrl, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      topic,
+      description,
+      date,
+    }),
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error);
+  }
+  const data = await response.json();
+  return data;
+}
+
 export async function loginTasks(login, password) {
   const response = await fetch(baseUrl + loginTasksUrl, {
     method: "POST",
@@ -27,9 +48,9 @@ export async function loginTasks(login, password) {
       password,
     }),
   });
-
-  if (response.status === 400) {
-    throw new Error("Неправильный логин или пароль");
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error)
   }
 
   const data = await response.json();
@@ -46,8 +67,9 @@ export async function regTasks(name, login, password) {
     }),
   });
 
-  if (response.status === 400) {
-    throw new Error("Пользователь с таким логином уже сущетсвует");
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error)
   }
 
   const data = await response.json();
