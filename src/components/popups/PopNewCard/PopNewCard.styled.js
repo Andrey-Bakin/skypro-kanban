@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Hover } from "../../styles/shared";
 import { topicStyles } from "../../../lib/topic";
+import { css } from "styled-components"
 
 export const PopNewCard = styled.div`
     display: block;
@@ -170,12 +171,7 @@ export const CategoriesThemes = styled.div`
     flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: flex-start;
-    input[type=radio] {
-	    display: none;
-        &:checked {
-        opacity: 1 !important;
-    }
-    }  
+    
 `;
 
 export const CategoriesTheme = styled.label`
@@ -193,23 +189,29 @@ export const CategoriesTheme = styled.label`
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
+  cursor: pointer;
     color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
   background-color: ${({ $topicColor }) =>
     topicStyles[$topicColor]?.backgroundColor || "#b4fdd1"};
+    ${({ isActive }) =>
+    isActive &&
+    css`
+      opacity: 1;
+    `}
 `;
 
-export const Orange = styled.p`
-  background-color: #ffe4c2;
-  color: #ff6d00;
-`;
-export const Green = styled.p`
- background-color: #B4FDD1;
-  color: #06B16E;
-`;
-export const Purple = styled.p`
- background-color: #E9D4FF;
-  color: #9A48F1;
-`;
+// export const Orange = styled.p`
+//   background-color: #ffe4c2;
+//   color: #ff6d00;
+// `;
+// export const Green = styled.p`
+//  background-color: #B4FDD1;
+//   color: #06B16E;
+// `;
+// export const Purple = styled.p`
+//  background-color: #E9D4FF;
+//   color: #9A48F1;
+// `;
 
 export const FormNewCreate = styled.button`
   width: 132px;

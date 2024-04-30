@@ -74,51 +74,29 @@ function PopNewCard() {
             <S.PopNewCardCategories>
               <p>Категория</p>
               <S.CategoriesThemes>
-                <S.CategoriesTheme
-                  htmlFor="radio1"
+              <S.CategoriesTheme
                   $topicColor={topicHeader["Web Design"]}
+                  isActive={newTask.topic === "Web Design"}
+                  onClick={() =>
+                    setNewTask({ ...newTask, topic: "Web Design" })
+                  }
                 >
                   Web Design
-                  <input
-                    onChange={(e) =>
-                      setNewTask({ ...newTask, topic: e.target.value })
-                    }
-                    type="radio"
-                    id="radio1"
-                    value="Web Design"
-                    checked={newTask.topic === "Web Design" }
-                  />
                 </S.CategoriesTheme>
-
                 <S.CategoriesTheme
-                  htmlFor="radio2"
-                  $topicColor={topicHeader["Research"]}
+                  isActive={newTask.topic === "Research"}
+                  onClick={() => setNewTask({ ...newTask, topic: "Research" })}
                 >
                   Research
-                  <input
-                    onChange={(e) =>
-                      setNewTask({ ...newTask, topic: e.target.value })
-                    }
-                    type="radio"
-                    id="radio2"
-                    value="Research"
-                    checked={newTask.topic === "Research"}
-                  />
                 </S.CategoriesTheme>
                 <S.CategoriesTheme
-                  htmlFor="radio3"
                   $topicColor={topicHeader["Copywriting"]}
+                  isActive={newTask.topic === "Copywriting"}
+                  onClick={() =>
+                    setNewTask({ ...newTask, topic: "Copywriting" })
+                  }
                 >
                   Copywriting
-                  <input
-                    onChange={(e) =>
-                      setNewTask({ ...newTask, topic: e.target.value })
-                    }
-                    type="radio"
-                    id="radio3"
-                    value="Copywriting"
-                    checked={newTask.topic === "Copywriting"}
-                  />
                 </S.CategoriesTheme>
               </S.CategoriesThemes>
             </S.PopNewCardCategories>
