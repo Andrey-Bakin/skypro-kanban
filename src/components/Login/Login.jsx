@@ -15,12 +15,13 @@ function Login() {
   const handleLoginTasksClick = async (event) => {
       event.preventDefault();
       
-      await loginTasks(login, password).then((responseData) => {
+      await loginTasks(login, password)
+      .then((responseData) => {
         userLogin(responseData.user);
       })
       .catch((err) => {
-      setLoginError (err.message);
-      console.log(err.message)
+        setLoginError(err.message);
+        console.log(err.message)
       });
   };
 

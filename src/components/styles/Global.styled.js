@@ -35,4 +35,15 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 }
+
+@keyframes card-animation {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: auto;
+    opacity: 1;
+  }
+}
 `;
