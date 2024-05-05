@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Hover01 } from "../styles/shared";
 
 export const RegModalForm = styled.form`
   width: 100%;

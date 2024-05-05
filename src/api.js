@@ -75,3 +75,46 @@ export async function regTasks(name, login, password) {
   const data = await response.json();
   return data;
 }
+
+export async function editTask({ token, id, taskData }) {
+  const response = await fetch(baseUrl + getTasksUrl + `/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "PUT",
+    body: JSON.stringify({
+      title: taskData.title,
+      topic: taskData.topic,
+      status: taskData.status,
+      description: taskData.description,
+      date: taskData.date,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error)
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+export async function deleteTask({ taskData, id, token }) {
+  const response = await fetch(baseUrl + getTasksUrl + `/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "DELETE",
+    body: JSON.stringify({
+      taskData,
+    }),
+  });
+
+  if (!response.status === 201) {
+    throw new Error("Ошибка");
+  }
+
+  const data = await response.json();
+  return data;
+}

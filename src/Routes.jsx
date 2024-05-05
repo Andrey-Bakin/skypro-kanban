@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import CardPage from "./pages/CardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./components/Private-routes/PrivateRoutes";
-import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
+import NewCardPage from "./pages/NewCardPage";
 
 const AppRoutes = () => {
   return (
@@ -17,11 +17,8 @@ const AppRoutes = () => {
         <Route element={<PrivateRoutes />}>
           <Route path={routesObject.MAIN} element={<MainPage />}>
             <Route path={routesObject.EXIT} element={<ExitPage />} />
-            <Route
-              path={`${routesObject.CARD}/:cardId`}
-              element={<CardPage />}
-            />
-            <Route path={routesObject.NEWCARD} element={<PopNewCard />} />
+            <Route path={routesObject.CARD} element={<CardPage />} />
+            <Route path={routesObject.NEWCARD} element={<NewCardPage />} />
           </Route>
         </Route>
 

@@ -41,7 +41,6 @@ export const CardTopic = styled.div`
         line-height: 10px;
         color: ${({ $topic }) => topicStyles[$topic]?.color || "#ffffff"};
     }
-
 `;
 
 export const CardBtn = styled.div`
