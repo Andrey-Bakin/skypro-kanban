@@ -4,7 +4,6 @@ import Header from "../components/Header/Header";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Wrapper } from "../components/styles/shared";
-// import "../App.css";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../api";
 import { useUserContext } from "../contexts/hooks/useUser";
@@ -30,18 +29,7 @@ const MainPage = () => {
     })
   }, [user]);
 
-  // function addCard() {
-  //   setCards([
-  //     ...cards,
-  //     {
-  //       _id: cards.length + 1,
-  //       topic: "Тема",
-  //       title: "Название задачи",
-  //       date: "30.10.23",
-  //       status: "Без статуса",
-  //     },
-  //   ]);
-  // }
+
   return (
     <>
       <Wrapper>

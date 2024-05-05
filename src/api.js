@@ -76,7 +76,7 @@ export async function regTasks(name, login, password) {
   return data;
 }
 
-export async function putTodo({ token, id, taskData }) {
+export async function editTask({ token, id, taskData }) {
   const response = await fetch(baseUrl + getTasksUrl + `/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -100,7 +100,7 @@ export async function putTodo({ token, id, taskData }) {
   return data;
 }
 
-export async function deleteTodo({ taskData, id, token }) {
+export async function deleteTask({ taskData, id, token }) {
   const response = await fetch(baseUrl + getTasksUrl + `/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,

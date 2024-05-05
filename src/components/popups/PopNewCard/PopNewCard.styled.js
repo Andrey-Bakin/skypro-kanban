@@ -200,19 +200,6 @@ export const CategoriesTheme = styled.label`
     `}
 `;
 
-// export const Orange = styled.p`
-//   background-color: #ffe4c2;
-//   color: #ff6d00;
-// `;
-// export const Green = styled.p`
-//  background-color: #B4FDD1;
-//   color: #06B16E;
-// `;
-// export const Purple = styled.p`
-//  background-color: #E9D4FF;
-//   color: #9A48F1;
-// `;
-
 export const FormNewCreate = styled.button`
   width: 132px;
   height: 30px;

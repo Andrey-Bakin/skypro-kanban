@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Hover01, Hover03 } from "../../styles/shared";
 import { topicStyles } from "../../../lib/topic";
+import { css } from "styled-components";
 
 export const PopBrowse = styled.div`
     display: block;
@@ -111,40 +112,24 @@ export const PopBrowseStatusTheme = styled.div`
         line-height: 1;
         letter-spacing: -0.14px;
     }
+    ${({ isactived }) =>
+    isactived &&
+    css`
+      opacity: 1;
+      background-color: #94a6be;
+      color: #fff;
+    `}
+    background-color: ${({ $topicColor }) =>
+    topicStyles[$topicColor]?.backgroundColor || "##ffffff"};
+    box-sizing: border-box;
+    border: 0.7px solid rgba(148, 166, 190, 0.4);
+    border-radius: 24px;
 `;
 
 export const PopBrowseStatusActiveTheme = styled(PopBrowseStatusTheme)`
     color: #ffffff;
     background: rgb(148, 166, 190);
 `;
-
-// export const OpenedCardTheme = styled.div`
-//   display: inline-block;
-//   width: 180px;
-//   height: 50px;
-//   font-family: Roboto;
-//   font-size: 14px;
-//   font-weight: 400;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 8px 20px;
-//   border-radius: 24px;
-//   margin-right: 7px;
-//   opacity: 0.4;
-//   padding: 10px 14px 10px 14px;
-
-//   cursor: pointer;
-
-//   ${({ isactived }) =>
-//     isactived &&
-//     css`
-//       opacity: 1;
-//       background-color: #94a6be;
-//       color: #fff;
-//     `}
-  
-// `;
 
 export const PopBrowseWrap = styled.div`
     display: flex;

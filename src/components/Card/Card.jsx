@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import * as S from "./Card.styled";
-import { routesObject } from "../../lib/const";
+import { format } from "date-fns";
 
 function Card({ topic, title, date, _id }) {
 
@@ -27,7 +27,7 @@ function Card({ topic, title, date, _id }) {
           <S.CardTopic $topic={color}>
             <p>{topic}</p>
           </S.CardTopic>
-            <Link to={`${routesObject.CARD}/${_id}`}>
+            <Link to={`card/${_id}`}>
               <S.CardBtn>
                 <div />
                 <div />
@@ -66,7 +66,7 @@ function Card({ topic, title, date, _id }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>{date}</p>
+            <p>{format(date, "dd.MM.yyyy")}</p>
           </S.CardDate>
         </S.CardContent>
       </S.CardsCard>
